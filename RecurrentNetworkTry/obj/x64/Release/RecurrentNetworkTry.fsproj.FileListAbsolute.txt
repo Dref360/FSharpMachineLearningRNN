@@ -1,0 +1,15 @@
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\libgcc_s_seh-1.dll
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\libgfortran-3.dll
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\libopenblas.dll
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\libquadmath-0.dll
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\RecurrentNetworkTry.exe.config
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\RecurrentNetworkTry.exe
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\DiffSharp.dll
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\FSharp.Core.dll
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\FSharp.Quotations.Evaluator.dll
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\Hype.dll
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\DiffSharp.xml
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\FSharp.Quotations.Evaluator.pdb
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\Hype.xml
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\bin\Release\FSharp.Core.xml
+c:\users\fred\documents\visual studio 2015\Projects\RecurrentNetworkTry\RecurrentNetworkTry\obj\x64\Release\RecurrentNetworkTry.exe

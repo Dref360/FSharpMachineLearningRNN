@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Hype</name></assembly>
+<members>
+<member name="T:Hype.Batch">
+<summary>
+ Training batch configuration
+</summary>
+</member>
+<member name="T:Hype.Classifier">
+<summary>
+ Base type for classifiers
+</summary>
+</member>
+<member name="F:Hype.Dataset.Yi@">
+<summary>
+ The index of the maximum elements of individual outputs Yi, used for one-hot reprsentations
+</summary>
+</member>
+<member name="F:Hype.Dataset.Xi@">
+<summary>
+ The index of the maximum elements of individual inputs Xi, used for one-hot representations
+</summary>
+</member>
+<member name="F:Hype.Dataset.Y@">
+<summary>
+ The matrix Y of output values, where columns are the individual outputs Yi
+</summary>
+</member>
+<member name="F:Hype.Dataset.X@">
+<summary>
+ The matrix X of input values, where columns are the individual inputs Xi
+</summary>
+</member>
+<member name="M:Hype.Dataset.toStringFull(Hype.Dataset)">
+<summary>
+ Get a string representation of dataset `d` showing all values
+</summary>
+</member>
+<member name="M:Hype.Dataset.toString(Hype.Dataset)">
+<summary>
+ Get a summary string of dataset `d`
+</summary>
+</member>
+<member name="M:Hype.Dataset.toSeq(Hype.Dataset)">
+<summary>
+ Get the input-output pairs of dataset `d` as a sequence
+</summary>
+</member>
+<member name="M:Hype.Dataset.standardizeY(Hype.Dataset)">
+<summary>
+ Standardize the values in the output matrix Y of dataset `d` to have zero mean and unit variance
+</summary>
+</member>
+<member name="M:Hype.Dataset.standardizeX(Hype.Dataset)">
+<summary>
+ Standardize the values in the input matrix X of dataset `d` to have zero mean and unit variance
+</summary>
+</member>
+<member name="M:Hype.Dataset.standardize(Hype.Dataset)">
+<summary>
+ Standardize the values in the input matrix X and output matrix Y of dataset `d` to have zero mean and unit variance
+</summary>
+</member>
+<member name="M:Hype.Dataset.shuffle(Hype.Dataset)">
+<summary>
+ Shuffle the order of elements in dataset `d`
+</summary>
+</member>
+<member name="M:Hype.Dataset.randomSubset(System.Int32,Hype.Dataset)">
+<summary>
+ Sample a random subset of length `n` from dataset `d`
+</summary>
+</member>
+<member name="M:Hype.Dataset.normalizeY(Hype.Dataset)">
+<summary>
+ Normalize the values in the output matrix Y of dataset `d` to be in the range [0,1]
+</summary>
+</member>
+<member name="M:Hype.Dataset.normalizeX(Hype.Dataset)">
+<summary>
+ Normalize the values in the input matrix X of dataset `d` to be in the range [0,1]
+</summary>
+</member>
+<member name="M:Hype.Dataset.normalize(Hype.Dataset)">
+<summary>
+ Normalize the values in the input matrix X and output matrix Y of dataset `d` to be in the range [0,1]
+</summary>
+</member>
+<member name="M:Hype.Dataset.length(Hype.Dataset)">
+<summary>
+ The length of dataset `d`, i.e., the number of columns in input matrix X and output matrix Y
+</summary>
+</member>
+<member name="M:Hype.Dataset.item(System.Int32,Hype.Dataset)">
+<summary>
+ Get the input-output pair with index `i` from dataset `d`
+</summary>
+</member>
+<member name="M:Hype.Dataset.isEmpty(Hype.Dataset)">
+<summary>
+ Check whether dataset `d` is empty
+</summary>
+</member>
+<member name="P:Hype.Dataset.empty">
+<summary>
+ The empty dataset
+</summary>
+</member>
+<member name="P:Hype.Dataset.Yi">
+<summary>
+ The index of the maximum elements of individual outputs Yi, used for one-hot reprsentations
+</summary>
+</member>
+<member name="P:Hype.Dataset.Y">
+<summary>
+ The matrix Y of output values, where columns are the individual outputs Yi
+</summary>
+</member>
+<member name="P:Hype.Dataset.Xi">
+<summary>
+ The index of the maximum elements of individual inputs Xi, used for one-hot representations
+</summary>
+</member>
+<member name="P:Hype.Dataset.X">
+<summary>
+ The matrix X of input values, where columns are the individual inputs Xi
+</summary>
+</member>
+<member name="P:Hype.Dataset.Length">
+<summary>
+ The length of the dataset, i.e., the number of columns in input matrix X and output matrix Y
+</summary>
+</member>
+<member name="P:Hype.Dataset.Item(System.Int32)">
+<summary>
+ Get element `i`
+</summary>
+</member>
+<member name="M:Hype.Dataset.appendRowY(DiffSharp.AD.Float32.DV,Hype.Dataset)">
+<summary>
+ Append a new tow `v` to the output matrix Y of dataset `d`
+</summary>
+</member>
+<member name="M:Hype.Dataset.appendRowX(DiffSharp.AD.Float32.DV,Hype.Dataset)">
+<summary>
+ Append a new row `v` to the input matrix X of dataset `d`
+</summary>
+</member>
+<member name="M:Hype.Dataset.appendBiasRowX(Hype.Dataset)">
+<summary>
+ Append a row of ones to the input matrix X of dataset `d`
+</summary>
+</member>
+<member name="M:Hype.Dataset.VisualizeYColsAsImageGrid(System.Int32)">
+<summary>
+ Visualize the values of the output matrix Y where each column will be reshaped to an image with `imagerows` rows
+</summary>
+</member>
+<member name="M:Hype.Dataset.VisualizeXColsAsImageGrid(System.Int32)">
+<summary>
+ Visualize the values of the input matrix X where each column will be reshaped to an image with `imagerows` rows
+</summary>
+</member>
+<member name="M:Hype.Dataset.Visualize">
+<summary>
+ Get a string visualization of this dataset
+</summary>
+</member>
+<member name="M:Hype.Dataset.ToStringFull">
+<summary>
+ Get a string representation of this dataset showing all values
+</summary>
+</member>
+<member name="M:Hype.Dataset.ToString">
+<summary>
+ Get a summary string of this dataset
+</summary>
+</member>
+<member name="M:Hype.Dataset.ToSeq">
+<summary>
+ Get the input-output pairs as a sequence
+</summary>
+</member>
+<member name="M:Hype.Dataset.StandardizeY">
+<summary>
+ Standardize the values in the output matrix Y to have zero mean and unit variance
+</summary>
+</member>
+<member name="M:Hype.Dataset.StandardizeX">
+<summary>
+ Standardize the values in the input matrix X to have zero mean and unit variance
+</summary>
+</member>
+<member name="M:Hype.Dataset.Standardize">
+<summary>
+ Standardize the values in the input matrix X and output matrix Y to have zero mean and unit variance
+</summary>
+</member>
+<member name="M:Hype.Dataset.Shuffle">
+<summary>
+ Shuffle the order of elements in the dataset
+</summary>
+</member>
+<member name="M:Hype.Dataset.RandomSubset(System.Int32)">
+<summary>
+ Sample a random subset of length `n` from this dataset
+</summary>
+</member>
+<member name="M:Hype.Dataset.NormalizeY">
+<summary>
+ Normalize the values in the output matrix Y to be in the range [0,1]
+</summary>
+</member>
+<member name="M:Hype.Dataset.NormalizeX">
+<summary>
+ Normalize the values in the input matrix X to be in the range [0,1]
+</summary>
+</member>
+<member name="M:Hype.Dataset.Normalize">
+<summary>
+ Normalize the values in the input matrix X and output matrix Y to be in the range [0,1]
+</summary>
+</member>
+<member name="M:Hype.Dataset.GetSlice(Microsoft.FSharp.Core.FSharpOption{System.Int32},Microsoft.FSharp.Core.FSharpOption{System.Int32})">
+<summary>
+ Get a slice of the dataset between `lower` and `upper` indices
+</summary>
+</member>
+<member name="M:Hype.Dataset.Filter(Microsoft.FSharp.Core.FSharpFunc{System.Tuple{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},System.Boolean})">
+<summary>
+ Get a new dataset of the entries for which the `predicate` is true
+</summary>
+</member>
+<member name="M:Hype.Dataset.AppendRowY(DiffSharp.AD.Float32.DV)">
+<summary>
+ Append a new row `v` to the output matrix Y
+</summary>
+</member>
+<member name="M:Hype.Dataset.AppendRowX(DiffSharp.AD.Float32.DV)">
+<summary>
+ Append a new row `v` to the input matrix X
+</summary>
+</member>
+<member name="M:Hype.Dataset.AppendBiasRowX">
+<summary>
+ Append a row of all ones to the input matrix X
+</summary>
+</member>
+<member name="M:Hype.Dataset.#ctor(System.Collections.Generic.IEnumerable{System.Tuple{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV}})">
+<summary>
+ Construct a dataset from the given sequence of input-output vector pairs
+</summary>
+</member>
+<member name="M:Hype.Dataset.#ctor(System.Collections.Generic.IEnumerable{System.Int32},DiffSharp.AD.Float32.DM)">
+<summary>
+ Construct a dataset with one-hot input elements and given output matrix `y`. `xi` are the input indices, input dimensions is max(xi) + 1.
+</summary>
+</member>
+<member name="M:Hype.Dataset.#ctor(DiffSharp.AD.Float32.DM,System.Collections.Generic.IEnumerable{System.Int32})">
+<summary>
+ Construct a dataset with given input matrix `x` and one-hot output elements. `yi` are the output indices, output dimensions is max(yi) + 1.
+</summary>
+</member>
+<member name="M:Hype.Dataset.#ctor(System.Collections.Generic.IEnumerable{System.Int32},System.Int32,DiffSharp.AD.Float32.DM)">
+<summary>
+ Construct a dataset with one-hot input elements and given output matrix `y`. `xi` are the input indices, `onehotdimsx` is the input dimensions.
+</summary>
+</member>
+<member name="M:Hype.Dataset.#ctor(DiffSharp.AD.Float32.DM,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)">
+<summary>
+ Construct a dataset with given input matrix `x` and one-hot output elements. `yi` are the output indices, `onehotdimsy` is the output dimensions.
+</summary>
+</member>
+<member name="M:Hype.Dataset.#ctor(System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IEnumerable{System.Int32})">
+<summary>
+ Construct a dataset of one-hot input and output elements. `xi` are the input indices, input dimensions is max(xi) + 1, `yi` are the output indices, output dimensions is max(yi) + 1.
+</summary>
+</member>
+<member name="M:Hype.Dataset.#ctor(System.Collections.Generic.IEnumerable{System.Int32},System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)">
+<summary>
+ Construct a dataset of one-hot input and output elements. `xi` are the input indices, `onehotdimsx` is the input dimensions, `yi` are the output indices, `onehotdimsy` is the output dimensions.
+</summary>
+</member>
+<member name="M:Hype.Dataset.#ctor(DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Construct a dataset with given input matrix `x` and output matrix `y`. Columns of `x` and `y` are the individual inputs and corresponding outputs.
+</summary>
+</member>
+<member name="T:Hype.Dataset">
+<summary>
+ Dataset for holding training data
+</summary>
+</member>
+<member name="T:Hype.EarlyStopping">
+<summary>
+ Early stopping configuration
+</summary>
+</member>
+<member name="T:Hype.GradientClipping">
+<summary>
+ Gradient clipping configuration
+</summary>
+</member>
+<member name="T:Hype.LearningRate">
+<summary>
+ Learning rate schemes
+</summary>
+</member>
+<member name="T:Hype.LogisticClassifier">
+<summary>
+ Classifier for binary classification
+</summary>
+</member>
+<member name="T:Hype.Loss">
+<summary>
+ Loss function configuration
+</summary>
+</member>
+<member name="T:Hype.Method">
+<summary>
+ Gradient-based optimization methods
+</summary>
+</member>
+<member name="T:Hype.Momentum">
+<summary>
+ Momentum configuration
+</summary>
+</member>
+<member name="M:Hype.Optimize.Train(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM}},DiffSharp.AD.Float32.DV,Hype.Dataset,Hype.Dataset,Hype.Params)">
+<summary>
+ Train model function `f`, starting from initial parameter vector `w0`, by computing the loss for the training data given in dataset `d`, and also monitoring the loss for the validation data given in dataset `v`. Uses the optimization configuration given in `par`.
+</summary>
+</member>
+<member name="M:Hype.Optimize.Train(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM}},DiffSharp.AD.Float32.DV,Hype.Dataset,Hype.Dataset)">
+<summary>
+ Train model function `f`, starting from initial parameter vector `w0`, by computing the loss for the training data given in dataset `d`, and also monitoring the loss for the validation data given in dataset `v`. Uses the default optimization configuration in `Params.Default`.
+</summary>
+</member>
+<member name="M:Hype.Optimize.Train(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM}},DiffSharp.AD.Float32.DV,Hype.Dataset,Hype.Params)">
+<summary>
+ Train model function `f`, starting from initial parameter vector `w0`, by computing the loss for the training data given in dataset `d`. Uses the optimization configuration given in `par`.
+</summary>
+</member>
+<member name="M:Hype.Optimize.Train(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM}},DiffSharp.AD.Float32.DV,Hype.Dataset)">
+<summary>
+ Train model function `f`, starting from initial parameter vector `w0`, by computing the loss for the training data given in dataset `d`. Uses the default optimization configuration in `Params.Default`.
+</summary>
+</member>
+<member name="M:Hype.Optimize.Train(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV}},DiffSharp.AD.Float32.DV,Hype.Dataset,Hype.Dataset,Hype.Params)">
+<summary>
+ Train model function `f`, starting from initial parameter vector `w0`, by computing the loss for the training data given in dataset `d`, and also monitoring the loss for the validation data given in dataset `v`. Uses the optimization configuration given in `par`.
+</summary>
+</member>
+<member name="M:Hype.Optimize.Train(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV}},DiffSharp.AD.Float32.DV,Hype.Dataset,Hype.Dataset)">
+<summary>
+ Train model function `f`, starting from initial parameter vector `w0`, by computing the loss for the training data given in dataset `d`, and also monitoring the loss for the validation data given in dataset `v`. Uses the default optimization configuration in `Params.Default`.
+</summary>
+</member>
+<member name="M:Hype.Optimize.Train(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV}},DiffSharp.AD.Float32.DV,Hype.Dataset,Hype.Params)">
+<summary>
+ Train model function `f`, starting from initial parameter vector `w0`, by computing the loss for the training data given in dataset `d`. Uses the optimization configuration given in `par`.
+</summary>
+</member>
+<member name="M:Hype.Optimize.Train(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV}},DiffSharp.AD.Float32.DV,Hype.Dataset)">
+<summary>
+ Train model function `f`, starting from initial parameter vector `w0`, by computing the loss for the training data given in dataset `d`. Uses the default optimization configuration in `Params.Default`.
+</summary>
+</member>
+<member name="M:Hype.Optimize.Train(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D}},DiffSharp.AD.Float32.DV,Hype.Dataset,Hype.Dataset,Hype.Params)">
+<summary>
+ Train model function `f`, starting from initial parameter vector `w0`, by computing the loss for the training data given in dataset `d` and also monitoring the loss for the validation data given in dataset `v`. Uses the optimization configuration given in `par`.
+</summary>
+</member>
+<member name="M:Hype.Optimize.Train(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D}},DiffSharp.AD.Float32.DV,Hype.Dataset,Hype.Dataset)">
+<summary>
+ Train model function `f`, starting from initial parameter vector `w0`, by computing the loss for the training data given in dataset `d` and also monitoring the loss for the validation data given in dataset `v`. Uses the default optimization configuration in `Params.Default`
+</summary>
+</member>
+<member name="M:Hype.Optimize.Train(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D}},DiffSharp.AD.Float32.DV,Hype.Dataset,Hype.Params)">
+<summary>
+ Train model function `f`, starting from initial parameter vector `w0`, by computing the loss for the training data given in dataset `d`. Uses the optimization configuration given in `par`.
+</summary>
+</member>
+<member name="M:Hype.Optimize.Train(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D}},DiffSharp.AD.Float32.DV,Hype.Dataset)">
+<summary>
+ Train model function `f`, starting from initial parameter vector `w0`, by computing the loss for the training data given in dataset `d`. Uses the default optimization configuration in `Params.Default`
+</summary>
+</member>
+<member name="M:Hype.Optimize.Minimize(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D},DiffSharp.AD.Float32.DV,Hype.Params)">
+<summary>
+ Minimize vector-to-scalar function `f`, starting from initial parameter vector `w0`. Uses the optimization configuration given in `par`.
+</summary>
+</member>
+<member name="M:Hype.Optimize.Minimize(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D},DiffSharp.AD.Float32.DV)">
+<summary>
+ Minimize vector-to-scalar function `f`, starting from initial parameter vector `w0`. Uses the default optimization configuration in `Params.Default`.
+</summary>
+</member>
+<member name="T:Hype.Optimize">
+<summary>
+ Main optimization module
+</summary>
+</member>
+<member name="T:Hype.Params">
+<summary>
+ Record type holding optimization or training parameters
+</summary>
+</member>
+<member name="T:Hype.Regularization">
+<summary>
+ Regularization configuration
+</summary>
+</member>
+<member name="M:Hype.Rnd.UniformInt(System.Int32,System.Int32)">
+<summary>
+ Sample a random integer between `min` and `max`
+</summary>
+</member>
+<member name="M:Hype.Rnd.UniformInt(System.Int32)">
+<summary>
+ Sample a non-negative random integer less than `max`
+</summary>
+</member>
+<member name="M:Hype.Rnd.UniformInt">
+<summary>
+ Sample a non-negative random integer
+</summary>
+</member>
+<member name="M:Hype.Rnd.UniformDV(System.Int32,DiffSharp.AD.Float32.D,DiffSharp.AD.Float32.D)">
+<summary>
+ Sample a `DV` of length `n` from the uniform distribution between `min` and `max`. Elements of vector X ~ U(min,max)
+</summary>
+</member>
+<member name="M:Hype.Rnd.UniformDV(System.Int32,DiffSharp.AD.Float32.D)">
+<summary>
+ Sample a `DV` of length `n` from the uniform distribution between zero and `max`. Elements of vector X ~ U(0,max)
+</summary>
+</member>
+<member name="M:Hype.Rnd.UniformDV(System.Int32)">
+<summary>
+ Sample a `DV` of length `n` from the standard uniform distribution. Elements of vector X ~ U(0,1)
+</summary>
+</member>
+<member name="M:Hype.Rnd.UniformDM(System.Int32,System.Int32,DiffSharp.AD.Float32.D,DiffSharp.AD.Float32.D)">
+<summary>
+ Sample a `DM` of `m` rows and `n` columns from the uniform distribution between `min` and `max`. Elements of matrix X ~ U(min,max)
+</summary>
+</member>
+<member name="M:Hype.Rnd.UniformDM(System.Int32,System.Int32,DiffSharp.AD.Float32.D)">
+<summary>
+ Sample a `DM` of `m` rows and `n` columns from the uniform distribution between zero and `max`. Elements of matrix X ~ U(0,max)
+</summary>
+</member>
+<member name="M:Hype.Rnd.UniformDM(System.Int32,System.Int32)">
+<summary>
+ Sample a `DM` of `m` rows and `n` columns from the standard uniform distribution. Elements of matrix X ~ U(0,1)
+</summary>
+</member>
+<member name="M:Hype.Rnd.UniformD(DiffSharp.AD.Float32.D,DiffSharp.AD.Float32.D)">
+<summary>
+ Sample a `D` from the uniform distribution between `min` and `max`. X ~ U(min,max)
+</summary>
+</member>
+<member name="M:Hype.Rnd.UniformD(DiffSharp.AD.Float32.D)">
+<summary>
+ Sample a `D` from the unifrom distribution between zero and `max`. X ~ U(0,max)
+</summary>
+</member>
+<member name="M:Hype.Rnd.UniformD">
+<summary>
+ Sample a `D` from the standard uniform distribution. X ~ U(0,1)
+</summary>
+</member>
+<member name="M:Hype.Rnd.Uniform(System.Single,System.Single)">
+<summary>
+ Sample a `float32` from the uniform distribution between `min` and `max`. X ~ U(min,max)
+</summary>
+</member>
+<member name="M:Hype.Rnd.Uniform(System.Single)">
+<summary>
+ Sample a `float32` from the uniform distribution between zero and `max`. X ~ U(0,max)
+</summary>
+</member>
+<member name="M:Hype.Rnd.Uniform">
+<summary>
+ Sample a `float32` from the standard uniform distribution. X ~ U(0,1)
+</summary>
+</member>
+<member name="M:Hype.Rnd.Seed(System.Int32)">
+<summary>
+ Seed the random number generator with integer `seed`
+</summary>
+</member>
+<member name="M:Hype.Rnd.Permutation(System.Int32)">
+<summary>
+ Generate a random permutation of a set of length `n`
+</summary>
+</member>
+<member name="M:Hype.Rnd.NormalDV(System.Int32,DiffSharp.AD.Float32.D,DiffSharp.AD.Float32.D)">
+<summary>
+ Sample a `DV` of length `n` from the normal distribution with given mean `mu` and standard deviation `sigma`. Elements of vector X ~ N(mu,sigma)
+</summary>
+</member>
+<member name="M:Hype.Rnd.NormalDV(System.Int32)">
+<summary>
+ Sample a `DV` of length `n` from the standard normal distribution. Elements of vector X ~ N(0,1)
+</summary>
+</member>
+<member name="M:Hype.Rnd.NormalDM(System.Int32,System.Int32,DiffSharp.AD.Float32.D,DiffSharp.AD.Float32.D)">
+<summary>
+ Sample a `DM` of `m` rows and `n` columns from the normal distribution with given mean `mu` and standard deviation `sigma`. Elements of matrix X ~ N(mu,sigma)
+</summary>
+</member>
+<member name="M:Hype.Rnd.NormalDM(System.Int32,System.Int32)">
+<summary>
+ Sample a `DM` of `m` rows and `n` columns from the standard normal distribution. Elements of matrix X ~ N(0,1)
+</summary>
+</member>
+<member name="M:Hype.Rnd.NormalD(DiffSharp.AD.Float32.D,DiffSharp.AD.Float32.D)">
+<summary>
+ Sample a `D` from the normal distribution with given mean `mu` and standard deviation `sigma`. X ~ N(mu,sigma)
+</summary>
+</member>
+<member name="M:Hype.Rnd.NormalD">
+<summary>
+ Sample a `D` from the standard normal distribution. X ~ N(0,1)
+</summary>
+</member>
+<member name="M:Hype.Rnd.Normal(System.Single,System.Single)">
+<summary>
+ Sample a `float32` from the normal distribution with given mean `mu` and standard deviation `sigma`. X ~ N(mu,sigma)
+</summary>
+</member>
+<member name="M:Hype.Rnd.Normal">
+<summary>
+ Sample a `float32` from the standard normal distribution. X ~ N(0,1)
+</summary>
+</member>
+<member name="M:Hype.Rnd.Choice``1(``0[],DiffSharp.AD.Float32.DV)">
+<summary>
+ Select a random element of array `a`, given selection probabilities in vector `probs`
+</summary>
+</member>
+<member name="M:Hype.Rnd.Choice``1(``0[],System.Single[])">
+<summary>
+ Select a random element of array `a`, given selection probabilities in array `probs`
+</summary>
+</member>
+<member name="M:Hype.Rnd.Choice``1(``0[])">
+<summary>
+ Select a random element of array `a`
+</summary>
+</member>
+<member name="T:Hype.Rnd">
+<summary>
+ Random number generator
+</summary>
+</member>
+<member name="T:Hype.SoftmaxClassifier">
+<summary>
+ Classifier for softmax classification
+</summary>
+</member>
+<member name="M:Hype.Util.VisualizeDMRowsAsImageGrid(DiffSharp.AD.Float32.DM,System.Int32)">
+<summary>
+ Generate a string representation of matrix `w`, reshaping each row into an image with `imagerows` rows, and presenting resulting images together in an optimal grid layout.
+</summary>
+</member>
+<member name="M:Hype.Util.LoadMNISTPixels(System.String)">
+<summary>
+ Load values from the MNIST database images, from given `filename`, reading all elements
+</summary>
+</member>
+<member name="M:Hype.Util.LoadMNISTPixels(System.String,System.Int32)">
+<summary>
+ Load values from the MNIST database images, from given `filename`, reading `n` number of elements
+</summary>
+</member>
+<member name="M:Hype.Util.LoadMNISTLabels(System.String)">
+<summary>
+ Load values from the MNIST database labels, from given `filename`, reading all elements
+</summary>
+</member>
+<member name="M:Hype.Util.LoadMNISTLabels(System.String,System.Int32)">
+<summary>
+ Load values from the MNIST database labels, from given `filename`, reading `n` number of elements
+</summary>
+</member>
+<member name="M:Hype.Util.LoadImage(System.String)">
+<summary>
+ Load bitmap image with given `filename` to `DM`
+</summary>
+</member>
+<member name="M:Hype.Util.LoadDelimited(System.String)">
+<summary>
+ Load values from delimited text file with given `filename` and a default set of separator characters: space, comma, or tab
+</summary>
+</member>
+<member name="M:Hype.Util.LoadDelimited(System.String,System.Char[])">
+<summary>
+ Load values from delimited text file with given `filename` and separator characters `separators`
+</summary>
+</member>
+<member name="T:Hype.Util">
+<summary>
+ Various utility functions
+</summary>
+</member>
+<member name="T:Hype.Inference.HMCSampler">
+<summary>
+ Hamiltonian MCMC sampler
+</summary>
+</member>
+<member name="T:Hype.NLP.Language">
+<summary>
+ Language model
+</summary>
+</member>
+<member name="T:Hype.Neural.LSTMAlt">
+<summary>
+ Long short-term memory layer (alternative implementation)
+</summary>
+</member>
+<member name="T:Hype.Neural.GRU">
+<summary>
+ Gated recurrent unit layer
+</summary>
+</member>
+<member name="T:Hype.Neural.LSTM">
+<summary>
+ Long short-term memory layer
+</summary>
+</member>
+<member name="T:Hype.Neural.Recurrent">
+<summary>
+ Vanilla RNN layer
+</summary>
+</member>
+<member name="T:Hype.Neural.FeedForward">
+<summary>
+ Feedforward sequence of layers
+</summary>
+</member>
+<member name="T:Hype.Neural.Activation">
+<summary>
+ Activation layer with custom functions
+</summary>
+</member>
+<member name="T:Hype.Neural.LinearNoBias">
+<summary>
+ Linear layer with no bias
+</summary>
+</member>
+<member name="T:Hype.Neural.Linear">
+<summary>
+ Linear layer
+</summary>
+</member>
+<member name="T:Hype.Neural.Initializer">
+<summary>
+ Initialization schemes for neural layer weights
+</summary>
+</member>
+<member name="T:Hype.Neural.Layer">
+<summary>
+ Base type for neural layers
+</summary>
+</member>
+</members>
+</doc>
